@@ -1,13 +1,19 @@
 import './bootstrap';
 import '../css/app.css';
 
-import { createApp, h } from 'vue';
+import {createApp, h, onMounted} from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'test';
+
+const cleanApp = () => {
+    document.getElementById('app').removeAttribute('data-page')
+}
+
+document.addEventListener('inertia:finish', cleanApp)
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -18,6 +24,6 @@ createInertiaApp({
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },
-});
+}).then(cleanApp);
 
 InertiaProgress.init({ color: '#4B5563' });
