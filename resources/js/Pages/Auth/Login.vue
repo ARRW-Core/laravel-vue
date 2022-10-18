@@ -1,20 +1,22 @@
 <script setup>
-import Checkbox from '@/Components/Checkbox.vue';
+import Checkbox from '@/Components/Auth/Checkbox.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import InputError from '@/Components/Auth/InputError.vue';
+import InputLabel from '@/Components/Auth/InputLabel.vue';
+import PrimaryButton from '@/Components/Auth/PrimaryButton.vue';
+import TextInput from '@/Components/Auth/TextInput.vue';
+import {Head, Link, useForm, usePage} from '@inertiajs/inertia-vue3';
 
 defineProps({
     canResetPassword: Boolean,
     status: String,
 });
 
+console.log(usePage().props.value)
+console.log(status)
 const form = useForm({
-    email: '',
-    password: '',
+    email: 'raig.ramzy@gmail.com',
+    password: 'asd#@#123',
     remember: false
 });
 
@@ -32,6 +34,7 @@ const submit = () => {
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
+
 
         <form @submit.prevent="submit">
             <div>
