@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->date('date_joined');
+            $table->unsignedBigInteger('rank_id');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreign('rank_id')->references('id')->on('ranks')->onDelete('cascade');
             $table->timestamps();
         });
     }
