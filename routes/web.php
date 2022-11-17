@@ -19,7 +19,6 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
 //    $sql = DB::connection('sqlsrv')->select('SELECT * FROM [dbo].[ras_Users]');
-//    echo print_r($sql[0], true);
 //    foreach ($sql as $val) {
 //        echo $val->UserName."<br>";
 //    }
