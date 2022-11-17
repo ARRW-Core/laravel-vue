@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayout from '@/Layouts/MainLayout.vue';
 
 </script>
 
 <template>
-    <GuestLayout>
-        A
-    </GuestLayout>
+    <AuthenticatedLayout>
+
+    </AuthenticatedLayout>
 </template>
 
