@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('goods_requests', function (Blueprint $table) {
+        //connect goods and goods_requests
+        Schema::create('requested_goods', function (Blueprint $table) {
             $table->id();
-            $table->string('request_number');
-            $table->unsignedBigInteger('request_type_id');
+            $table->unsignedBigInteger('goods_request_id');
+            $table->uuid('good_id');
             $table->timestamps();
-            $table->foreign('request_type_id')->references('id')->on('request_types');
+            $table->foreign('good_id')->references('item_id')->on('goods');
+            $table->foreign('goods_request_id')->references('id')->on('goods_requests');
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goods_requests');
+        //
     }
 };

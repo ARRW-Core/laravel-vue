@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('goods_requests', function (Blueprint $table) {
+        Schema::create('request_types', function (Blueprint $table) {
             $table->id();
-            $table->string('request_number');
-            $table->unsignedBigInteger('request_type_id');
+            $table->string('name');
             $table->timestamps();
-            $table->foreign('request_type_id')->references('id')->on('request_types');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goods_requests');
+        Schema::dropIfExists('request_types');
     }
 };
