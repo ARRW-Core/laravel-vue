@@ -14,7 +14,7 @@
         @vite('resources/js/app.js')
         @inertiaHead
     </head>
-    <body class="font-sans antialiased">
-        @inertia
+    <body class="font-sans antialiased bg-black">
+        <div id="app" class="h-full" data-page="{{ json_encode($page) }}"></div>
     </body>
 </html>
