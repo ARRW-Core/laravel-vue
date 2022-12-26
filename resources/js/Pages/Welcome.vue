@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import { ref, reactive, h  } from 'vue';
+import NavigationsLayout from '@/Layouts/NavigationsLayout.vue';
+
+
 
 </script>
 
 <template>
+    <Head title="Welcome" />
+    <NavigationsLayout />
 
 </template>
